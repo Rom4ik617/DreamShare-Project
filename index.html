@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+        body,
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1020px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .header {
+            position: absolute;
+            width: 100%;
+            color: white;
+            font-size: 20px;
+            z-index: 100;
+        }
+
+        .header__wrap {
+            display: flex;
+            justify-content: space-between;
+            padding: 70px 0 40px;
+            /* background-image: url(./img/Bitmap.png); */
+        }
+
+        .header__menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav__list {
+            display: flex;
+        }
+
+        .header__nav {
+            display: flex;
+        }
+
+        .nav__item:not(:last-child) {
+            margin-right: 35px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* a:visited {
+            color: white;
+        } */
+
+        .header__logo,
+        .header__menu :visited {
+            color: white;
+        }
+
+        .circle {
+            border: 2px solid #FFFFFF;
+            border-radius: 40px;
+            padding: 8px 30px;
+            margin-top: -10px;
+        }
+
+        .baner {
+            min-height: 100vh;
+            padding: 110px 0;
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+        }
+
+        .overlay {
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+
+        .baner__button {
+            width: 225px;
+            height: 40px;
+            margin-left: 25%;
+            background: #FF4E50;
+            border-radius: 40px;
+            border: transparent;
+            color: white;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .global-title {
+            text-align: center;
+            font-size: 26px;
+            margin-top: 100px;
+        }
+
+        .main__block {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .main__item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            color: white;
+            padding: 20px;
+            width: calc(100% / 3 - 10px);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 500px;
+        }
+
+        .main__step {
+            width: 70px;
+            height: 20px;
+            background: #FF4E50;
+            border-radius: 40px;
+            border: transparent;
+            color: white;
+            text-align: center;
+        }
+
+        .main__block-item {
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 20px;
+            width: calc(100% / 4 - 10px);
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+
+        .image-circle {
+            border: transparent;
+            border-radius: 50%;
+        }
+
+        .item__proffesion1 {
+            position: absolute;
+            border: transparent;
+            border: solid white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background-color: #FF4E50;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .item__proffesion2 {
+            position: absolute;
+            border: transparent;
+            border: solid white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background-color: #19D4CA;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .item__proffesion3 {
+            position: absolute;
+            border: transparent;
+            border: solid white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background-color: #FFA710;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .item__proffesion4 {
+            position: absolute;
+            border: transparent;
+            border: solid white;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            background-color: #667DF3;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .image__item {
+            position: relative;
+            width: 125px;
+            height: 125px;
+            margin: 0 auto;
+        }
+
+        .main__button {
+            display: flex;
+            justify-content: center;
+            width: 180px;
+            height: 40px;
+            background: #FFFFFF;
+            border: 2px solid #FF4E50;
+            color: #FF4E50;
+            border-radius: 40px;
+            margin: 0 auto;
+            font-size: 14px;
+            margin-top: 36px;
+        }
+
+        .flex__list {
+            margin: 0 -20px;
+            padding: 0;
+            list-style: none;
+            font-size: 0;
+        }
+
+        .flex__item {
+            vertical-align: top;
+            font-size: 22px;
+            color: white;
+            text-align: center;
+            display: inline-block;
+            margin: 20px;
+            height: 310px;
+            padding: 20px;
+        }
+
+        .flex__item.w1-3 {
+            width: calc(100% / 3 - 40px);
+        }
+
+        .flex__item.w2-3 {
+            width: calc(100% * 2 / 3 - 40px);
+        }
+
+        .flex__item.w3-3 {
+            width: calc(100% - 40px);
+        }
+
+        .flex__item.w1-2 {
+            width: calc(100% / 2 - 40px);
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .search__box {
+            background: #FFFFFF;
+            border: 1px solid #D4D4D4;
+            box-sizing: border-box;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.073313);
+            border-radius: 3px;
+            width: 299px;
+            height: 40px;
+            padding-left: 15px;
+        }
+
+        button[type="submit"]{
+            outline: none;
+            border: none;
+            background: #FF4E50;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 25px;
+            margin-left: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background: #f00;
+        }
+
+        .hr {
+            height: 2px;
+            background: #FF4E50;
+            margin-top: 100px;
+        }
+
+        .footer__logo {
+            font-size: 16px;
+            color: #FF4E50;
+            height: 20px;
+        }
+
+        .footer__items {
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer__article {
+            font-size: 14px;
+            color: #444444;
+            font-weight: bold;
+        }
+
+        .footer__design {
+            margin-left: 287px;
+        }
+
+        .footer__design-text {
+            font-weight: bold;
+            font-size: 10px;
+            color: #CCCCCC;
+            text-align: right;
+        }
+
+        .footer__image {
+            margin-top: 7px;
+        }
+
+        .footer__sub-nav {
+            display: flex;
+            flex-direction: column;
+            line-height: 25px;
+            color: #999999;
+            text-align: left;
+            background-color: inherit;
+            border: transparent;
+            margin-top: 11px;
+        }
+
+        .footer__nav {
+            color: #999999;
+        }
+
+        .footer__nav:visited {
+            color: #999999;
+        }
+
+        @media screen and (min-width: 1025px) {
+            body {
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            body {
+                width: 100%;
+                margin: 0;
+            }
+
+            .main__block {
+                display: flex;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrap">
+                <a href="" class="header__logo">
+                    <b>DREAMSHARE</b>
+                </a>
+                <div class="header__menu">
+                    <nav class="header__nav nav">
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="" class="nav__link">Log in</a>
+                            </li>
+                            <li class="nav__item circle">
+                                <a href="" class="nav__link">Sign in</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="overlay">
+        <div class="baner" style="background-image: url(./img/Bitmap.png);">
+            <div class="container">
+                <div class="baner__wrap">
+                    <div class="baner__content">
+                        <h1 style="color: white;text-align: center;font-size: 52px;">SHARE YOUR<br> HOLIDAY DREAM</h1>
+                        <p style="color: white;text-align: center;font-size: 24px;margin-top: 30px;">And find the perfect partner to fullfill it</p>
+                        <button class="baner__button">Find your holiday partner</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main">
+        <div class="container">
+            <h1 class="global-title">How Dreamshare works?</h1>
+            <div class="main__block">
+                <div class="main__item" style="background-image: url(./img/Step1image1.png);">
+                    <div class="main__step">STEP 1</div>
+                    <h1 style="margin-top: 15px;font-size: 24px;">Sed leo enim, condimentum</h1>
+                    <p style="margin-top: 10px;">Quisque libero libero, dictum non turpis in, luctus semper lorem. Donec rhoncus a leo sit amet facilisis.</p>
+                </div>
+                <div class="main__item" style="background-image: url(./img/Step1image2.png);">
+                    <div class="main__step">STEP 2</div>
+                    <h1 style="margin-top: 15px;font-size: 24px;">Morbi velit risus</h1>
+                    <p style="margin-top: 10px;">Nulla venenatis tempor dui in molestie. Nulla quis dictum purus, sit amet porttitor est.</p>
+                </div>
+                <div class="main__item" style="background-image: url(./img/Step1image3.png);">
+                    <div class="main__step">STEP 3</div>
+                    <h1 style="margin-top: 15px;font-size: 24px;">Sed leo enim, condimentum</h1>
+                    <p style="margin-top: 10px;">Quisque libero libero, dictum non turpis in, luctus semper lorem. Donec rhoncus a leo sit amet facilisis.</p>
+                </div>
+            </div>
+            <h1 class="global-title">Meet a partner for your best holiday</h1>
+            <div class="main__block">
+                <div class="main__block-item">
+                    <div class="image__item">
+                        <img style="background-image: url(./img/Step1image2.png);" class="image-circle" src="./img/Bitmap1.png" alt="">
+                        <div class="item__proffesion1">
+                            <img style="margin-top: 20%;" src="./img/music1.png" alt="">
+                        </div>
+                    </div>
+                    <h1 style="font-size: 14px;margin-top: 14px;">Bradley Hunter</h1>
+                    <p style="font-size: 14px;margin-top: 12px;">Based in Chicago. I love playing tennis and loud music.</p>
+                </div>
+                <div class="main__block-item">
+                    <div class="image__item">
+                        <img class="image-circle" src="./img/Bitmap2.png" alt="">
+                        <div class="item__proffesion2">
+                            <img style="margin-top: 20%;" src="./img/brush.png" alt="">
+                        </div>
+                    </div>
+                    <h1 style="font-size: 14px;margin-top: 14px;">Marie Bennett</h1>
+                    <p style="font-size: 14px;margin-top: 12px;">Currently living in Colorado. Lover of art, languages and travelling.</p>
+                </div>
+                <div class="main__block-item">
+                    <div class="image__item">
+                        <img class="image-circle" src="./img/Bitmap3.png" alt="">
+                        <div class="item__proffesion3">
+                            <img style="margin-top: 20%;" src="./img/Shape.png" alt="">
+                        </div>
+                    </div>
+                    <h1 style="font-size: 14px;margin-top: 14px;">Diana Wells</h1>
+                    <p style="font-size: 14px;margin-top: 12px;">Living in Athens, Greece. I love black and white classics, chillout music and green tea.</p>
+                </div>
+                <div class="main__block-item">
+                    <div class="image__item">
+                        <img class="image-circle" src="./img/Bitmap4.png" alt="">
+                        <div class="item__proffesion4">
+                            <img style="margin-top: 8%;" src="./img/Shape2.png" alt="">
+                        </div>
+                    </div>
+                    <h1 style="font-size: 14px;margin-top: 14px;">Christopher Pierce</h1>
+                    <p style="font-size: 14px;margin-top: 12px;">Star Wars fanatic. I have a persistent enthusiasm to create new things.</p>
+                </div>
+            </div>
+            <button class="main__button"><b>See other partners</b></button>
+            <h1 class="global-title">Discover holiday activity ideas</h1>
+            <ul class="flex__list">
+                <li style="background-image: url(./img/Bitmap5.png);" class="flex__item w1-3">Sports and Activis</li>
+                <li style="background-image: url(./img/Bitmap6.png);" class="flex__item w1-3">Wellness and Health</li>
+                <li style="background-image: url(./img/Bitmap7.png);" class="flex__item w1-3">Extreme Sports and Expeditions</li>
+                <li style="background-image: url(./img/Bitmap8.png);" class="flex__item w1-3">Games</li>
+                <li style="background-image: url(./img/Bitmap9.png);background-size: cover;" class="flex__item w2-3">Culture and Education</li>
+                <li style="background-image: url(./img/Bitmap10.png);background-size: cover;" class="flex__item w2-3">Enjomet and Relaxation</li>
+                <li style="background-image: url(./img/Bitmap11.png);" class="flex__item w1-3">Trevelling</li>
+            </ul>
+        </div>
+        <h1 class="global-title">Create your holiday activity</h1>
+        <p style="text-align: center;font-size: 18px;color: #666666;margin-top: 43px;">Hi! What are your holiday interests?</p>
+        <div class="search">
+            <input class="search__box" type="text" placeholder="Enter your insterests">
+            <button type="submit">Search partners</button>
+        </div>
+    </main>
+    <div class="hr"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__items">
+                <div class="footer__logo">DREAMSHARE</div>
+                <div class="footer__article">Company
+                    <div class="footer__sub">
+                        <nav class="footer__sub-nav">
+                            <a class="footer__nav" href="">About</a>
+                            <a class="footer__nav" href="">Contact</a>
+                            <a class="footer__nav" href="">Press</a>
+                            <a class="footer__nav" href="">Blog</a>
+                            <a class="footer__nav" href="">Terms and Privacy</a>
+                            <a class="footer__nav" href="">Help</a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="footer__article">Partners</div>
+                <div class="footer__design">
+                    <p class="footer__design-text">DESIGNED BY</p>
+                    <img class="footer__image" src="./img/Bitmap12.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
